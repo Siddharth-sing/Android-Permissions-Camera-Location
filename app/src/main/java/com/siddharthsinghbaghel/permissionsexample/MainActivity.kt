@@ -19,11 +19,7 @@ class MainActivity : AppCompatActivity() {
 
        btnLocationCameraPermission.setOnClickListener{
            if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED){
-               Toast.makeText(this,"You have permission for camera",Toast.LENGTH_LONG).show()
-
-           }
-           else if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-               Toast.makeText(this,"You have permission for Location",Toast.LENGTH_LONG).show()
+               Toast.makeText(this,"Either Camera or Location or both permissions are granted",Toast.LENGTH_LONG).show()
 
            }
            else{
@@ -34,37 +30,31 @@ class MainActivity : AppCompatActivity() {
            }
 
        }
+
         btnCamera.setOnClickListener{
             if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(this,"You have permission for camera",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"You have permission for camera ",Toast.LENGTH_LONG).show()
 
             }
-            else if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(this,"You have permission for Location",Toast.LENGTH_LONG).show()
 
-            }
             else{
 
-                ActivityCompat.requestPermissions(this,arrayOf(android.Manifest.permission.CAMERA,
-                    android.Manifest.permission.ACCESS_FINE_LOCATION),
-                    CAMERA_AND_FINE_LOCATION_PERMISSION_CODE)
+                ActivityCompat.requestPermissions(this,arrayOf(android.Manifest.permission.CAMERA),
+                    CAMERA_PERMISSION_CODE)
             }
 
         }
-        btnLocationCameraPermission.setOnClickListener{
-            if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(this,"You have permission for camera",Toast.LENGTH_LONG).show()
+
+        btnLocation.setOnClickListener{
+            if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(this,"You have permission for Location ",Toast.LENGTH_LONG).show()
 
             }
-            else if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(this,"You have permission for Location",Toast.LENGTH_LONG).show()
 
-            }
             else{
 
-                ActivityCompat.requestPermissions(this,arrayOf(android.Manifest.permission.CAMERA,
-                    android.Manifest.permission.ACCESS_FINE_LOCATION),
-                    CAMERA_AND_FINE_LOCATION_PERMISSION_CODE)
+                ActivityCompat.requestPermissions(this,arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                    FINE_LOCATION_PERMISSION_CODE)
             }
 
         }
@@ -96,16 +86,16 @@ class MainActivity : AppCompatActivity() {
         {
             if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
             {
-                Toast.makeText(this,"You get permission for camera here ",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"You get permission for camera  ",Toast.LENGTH_LONG).show()
             }else{
-                Toast.makeText(this,"Camera Access Denied here",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Camera Access Denied ",Toast.LENGTH_LONG).show()
             }
 
             if(grantResults.isNotEmpty() && grantResults[1] == PackageManager.PERMISSION_GRANTED)
             {
-                Toast.makeText(this,"You get permission for Location here ",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"You get permission for Location ",Toast.LENGTH_LONG).show()
             }else{
-                Toast.makeText(this,"Location Access Denied here",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Location Access Denied ",Toast.LENGTH_LONG).show()
             }
         }
 

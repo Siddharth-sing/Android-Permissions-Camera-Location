@@ -22,7 +22,7 @@
         android:id="@+id/btnLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Only Camera Permission"
+        android:text="Only Location Permission"
         app:layout_constraintBottom_toTopOf="@+id/btnCamera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
